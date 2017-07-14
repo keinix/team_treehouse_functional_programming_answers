@@ -1,0 +1,39 @@
+group 'com.teamtreehouse.challenges'
+version '1.0.1-REDUCTION'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
+task prepareSubmission(type: Zip) {
+    dependsOn check
+    group = 'Treehouse'
+    description = 'Runs tests and if successful, zips up project for submission'
+    classifier = new Date().format('yyyyMMddHHmmss')
+    from '.'
+    include '**'
+    exclude '.gradle/**'
+    exclude '.idea'
+    exclude 'build'
+    exclude 'submissions'
+    destinationDir = file('submissions')
+    logger.info('Zip is located in submissions folder')
+}
+
+
+
+dependencies {
+    compile 'org.apache.commons:commons-csv:1.3'
+    testCompile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+}

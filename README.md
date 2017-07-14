@@ -1,2 +1,2 @@
-# team_treehouse_functional_programming_answers
-Answers to the code challenges for the Introduction to Functional Programming course at teamtreehouse.com
+# TeamTreehouse.com: Introduction to Functional Programming live code challange ansers.
+Use these to help you out if you get stumped on one of the code challenges while learning functional programming over at Team Treehouse.
